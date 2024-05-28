@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
 
   final _counter = signal(0);
 
-  //Not a  setState(() {});
+  // Schau, Mutter, nicht ein setState(() {});
   void _incrementCounter() {
     _counter.value++;
   }
@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
   // To display the sorted list. Need to make it a signal because we want to watch it.
   final myListSignal = listSignal(<int>[]);
 
-// Helper function
+  // Helper function
   void showSnackbar({required BuildContext context, required String message}) {
     // Remove any existing snackbar
     ScaffoldMessenger.of(context).removeCurrentSnackBar();
@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('Home Page - $pageTitle'),
+        title: Text(pageTitle),
       ),
       body: Center(
         child: Padding(
@@ -103,10 +103,10 @@ class HomePage extends StatelessWidget {
             child: const Icon(Icons.add),
           ),
           const SizedBox(width: 64.0),
-          // Start effect function
+          // Start effect
           Container(
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.green, width: 4.0),
+              border: Border.all(color: Colors.blue, width: 2),
               borderRadius: BorderRadius.circular(10),
             ),
             padding: const EdgeInsets.all(15),
@@ -134,6 +134,7 @@ class HomePage extends StatelessWidget {
                         tooltip: 'Start Effect',
                         child: const Text('Start')),
                     const SizedBox(width: 32.0),
+                    // Stop effect
                     FloatingActionButton(
                       // backgroundColor: isEffect ? Colors.blue : Colors.grey,
                       onPressed: () {
