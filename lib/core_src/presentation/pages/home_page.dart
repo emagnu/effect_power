@@ -39,9 +39,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     debugPrint('======> HomePage build <=======');
     // To hold the pointer to the stop signal for the effect
-    void Function() disposeEffect = effect(() {});
+    void Function() toggleEffect = effect(() {});
 
-    final isCounterEven = computed(() => _counter.value.isEven);
+    final Computed<bool> isCounterEven = computed(() => _counter.value.isEven);
 
     return Scaffold(
       appBar: AppBar(
@@ -122,7 +122,7 @@ class HomePage extends StatelessWidget {
                           debugPrint(
                               '=======> Start Effect Clicked <=========');
 
-                          void Function() disposeEffect = effect(() {
+                          toggleEffect = effect(() {
                             myListSignal.value = (_counter.value.isEven
                                     ? [...list]
                                     : [...list].reversed)
@@ -139,7 +139,7 @@ class HomePage extends StatelessWidget {
                       onPressed: () {
                         debugPrint('=======> Stop Effect Clicked <=========');
                         myListSignal.value = [];
-                        disposeEffect();
+                        toggleEffect();
                         showSnackbar(
                             context: context, message: 'Effect is off');
                       },

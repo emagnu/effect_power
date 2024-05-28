@@ -122,7 +122,8 @@ class HomePage extends StatelessWidget {
                           debugPrint(
                               '=======> Start Effect Clicked <=========');
 
-                          void Function() disposeEffect = effect(() {
+                          // void Function()
+                          disposeEffect = effect(() {
                             myListSignal.value = (_counter.value.isEven
                                     ? [...list]
                                     : [...list].reversed)
